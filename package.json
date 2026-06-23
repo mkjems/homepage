@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "sh scripts/build.sh",
-    "check": "npm run build && test -f dist/index.html"
+    "check": "npm run build && test -f dist/index.html",
+    "docker:run": "npm run build && docker build -t homepage . && docker run --rm -p 18080:8080 homepage"
   }
 }
