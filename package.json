@@ -1,0 +1,9 @@
+{
+  "name": "homepage",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "sh scripts/build.sh",
+    "check": "npm run build && test -f dist/index.html"
+  }
+}
