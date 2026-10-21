@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Martin Kjems project homepage with links to Gunfight, Multiplayer, and Mastermind.">
+    <meta name="description" content="Martin Kjems project homepage with links to Gunfight, Multiplayer, Mastermind, and Frontlines.">
     <title>mkjems.dk</title>
     <style>
         :root {
@@ -271,7 +271,7 @@
         .projects {
             display: grid;
             gap: 16px;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             padding: 8px 0 40px;
         }
 
@@ -302,6 +302,10 @@
 
         .project-card:nth-child(3) {
             --accent: var(--yellow);
+        }
+
+        .project-card:nth-child(4) {
+            --accent: var(--cyan);
         }
 
         .project-card::before {
@@ -517,19 +521,20 @@
                     <a href="https://gunfight.mkjems.dk/">Gunfight</a>
                     <a href="https://multiplayer.mkjems.dk/">Multiplayer</a>
                     <a href="https://mastermind.mkjems.dk/">Mastermind</a>
+                    <a href="https://frontlines.mkjems.dk/">Frontlines</a>
                 </nav>
             </header>
 
             <section class="hero" aria-labelledby="home-title">
                 <div>
-                    <p class="eyebrow">three live projects</p>
+                    <p class="eyebrow">four live projects</p>
                     <h1 id="home-title">mkjems<span class="headline-accent">builds</span></h1>
                     <p class="dek">A small launchpad for the browser games and multiplayer experiments running on my Hetzner box.</p>
                 </div>
 
                 <aside class="signal-board" aria-label="Site status">
                     <div class="stat">
-                        <b>03</b>
+                        <b>04</b>
                         <span>projects online</span>
                     </div>
                     <div class="stat">
@@ -584,6 +589,19 @@
                     <div class="card-footer">
                         <span class="status">live</span>
                         <span>mastermind.mkjems.dk</span>
+                    </div>
+                </a>
+
+                <a class="project-card" href="https://frontlines.mkjems.dk/" data-project="frontlines">
+                    <div class="project-top">
+                        <span class="glyph" aria-hidden="true">FL</span>
+                        <span class="open">Open</span>
+                    </div>
+                    <h2>frontlines</h2>
+                    <p>A river war between two kingdoms where you draw the roads and the armies sort out the rest.</p>
+                    <div class="card-footer">
+                        <span class="status">live</span>
+                        <span>frontlines.mkjems.dk</span>
                     </div>
                 </a>
             </section>
