@@ -33,6 +33,7 @@ library repo:
 cd ../experiments/frameworks/react/glow-ui && npm run pack   # writes glow-ui-<version>.tgz
 cd ~/Code/Homepage
 git rm vendor/glow-ui-*.tgz                                  # keep exactly one tarball
+mkdir -p vendor                                              # git rm removes the emptied folder
 cp ../experiments/frameworks/react/glow-ui/glow-ui-<version>.tgz vendor/
 npm install ./vendor/glow-ui-<version>.tgz                   # updates package.json and the lockfile
 ```

@@ -55,9 +55,7 @@ function Hero() {
         </Col>
         <Col span={{ base: 12, lg: 10 }}>
           <Heading level={1} size="display" id="hero-title">
-            <RevealText>Games for</RevealText>
-            <br />
-            <RevealText delay={160}>the browser.</RevealText>
+            <RevealText lines={["Games for", "the browser."]} />
           </Heading>
         </Col>
 
