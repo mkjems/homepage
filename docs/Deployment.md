@@ -20,7 +20,7 @@ This page only covers what is specific to the homepage.
 
 ## Docker Image
 
-`npm run build` copies `src/` to `dist/`. The [Dockerfile](../Dockerfile)
+`npm run build` typechecks and runs `vite build` into `dist/`. The [Dockerfile](../Dockerfile)
 copies `dist/` into `nginxinc/nginx-unprivileged:stable-alpine`, which serves
 it as an unprivileged user on port `8080`.
 
@@ -48,7 +48,7 @@ services:
 [.github/workflows/deploy.yml](../.github/workflows/deploy.yml) runs on pushes
 to `main` and can be started by hand:
 
-1. Builds the site and checks that `dist/index.html` exists.
+1. Runs `npm ci`, builds the site and checks that `dist/index.html` exists.
 2. Builds the image and pushes it to GHCR as `:latest` and `:<commit sha>`.
 3. SSHes into the VPS, runs `docker compose pull` and `docker compose up -d` in
    `/opt/homepage`, then checks `http://127.0.0.1:8082/` and

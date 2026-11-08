@@ -1,0 +1,227 @@
+/* Page-level layout on top of glow-ui. Colors come from --glow-h; no hard-coded hues. */
+
+:root {
+  --glow-h: 218;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--glow-bg);
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+/* ---- Masthead ---------------------------------------------------------- */
+
+.masthead {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 28px;
+}
+.wordmark {
+  font-family: var(--glow-font-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+.masthead-nav {
+  display: flex;
+  gap: 24px;
+}
+.masthead-nav a,
+.footer a {
+  font-size: 14px;
+  color: var(--glow-text-muted);
+  text-decoration: none;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+.masthead-nav a:hover,
+.masthead-nav a:focus-visible {
+  color: var(--glow-core);
+  text-shadow: 0 0 10px var(--glow-line);
+  outline: none;
+}
+
+/* ---- Hero -------------------------------------------------------------- */
+
+.hero {
+  padding-block: clamp(72px, 14vw, 200px) clamp(64px, 10vw, 144px);
+}
+
+.index {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--glow-separator);
+}
+.index a {
+  display: grid;
+  grid-template-columns: 4ch 1fr auto;
+  align-items: baseline;
+  gap: var(--glow-gutter);
+  padding: 14px 0;
+  border-top: 1px solid var(--glow-separator);
+  text-decoration: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  animation: glow-rise 900ms var(--glow-ease-out) calc(700ms + var(--i) * 90ms) backwards;
+}
+.index a:hover,
+.index a:focus-visible {
+  outline: none;
+  border-top-color: var(--glow-line);
+  box-shadow: 0 -1px 14px -6px var(--glow-line);
+}
+.index-no {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--glow-core);
+  text-shadow: 0 0 10px var(--glow-line);
+}
+.index-name {
+  font-family: var(--glow-font-display);
+  font-size: clamp(18px, 1.8vw, 24px);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+.index-genre {
+  font-size: 13px;
+  color: var(--glow-text-muted);
+}
+@media (prefers-reduced-motion: reduce) {
+  .index a {
+    animation: none;
+  }
+}
+
+/* ---- Work -------------------------------------------------------------- */
+
+.project {
+  scroll-margin-top: 24px;
+}
+.project-grid {
+  padding-block: clamp(32px, 4vw, 48px) clamp(64px, 8vw, 112px);
+}
+.project-copy {
+  height: 100%;
+}
+
+.shot {
+  display: block;
+  text-decoration: none;
+  outline: none;
+}
+.shot .glow-img {
+  border-radius: var(--glow-radius-sm);
+  border: 1px solid var(--quiet-border);
+  transition: border-color 0.3s, box-shadow 0.4s var(--glow-ease);
+}
+.shot:hover .glow-img,
+.shot:focus-visible .glow-img {
+  border-color: var(--glow-line);
+  box-shadow: var(--glow-shadow-sm);
+}
+
+.facts {
+  margin: 0;
+  display: grid;
+}
+.facts > div {
+  display: grid;
+  grid-template-columns: 9ch 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid var(--glow-separator);
+  font-size: 14px;
+}
+.facts > div:last-child {
+  border-bottom: 1px solid var(--glow-separator);
+}
+.facts dt {
+  color: var(--glow-text-faint);
+}
+.facts dd {
+  margin: 0;
+  color: var(--glow-text);
+  overflow-wrap: anywhere;
+}
+.facts--about > div {
+  grid-template-columns: 11ch 1fr;
+  padding: 14px 0;
+}
+
+.play {
+  align-self: flex-start;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+/* ---- About & footer ---------------------------------------------------- */
+
+.about {
+  scroll-margin-top: 24px;
+}
+.about > .glow-grid {
+  padding-block: clamp(32px, 4vw, 48px) clamp(96px, 14vw, 200px);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+.grid-toggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.grid-toggle:hover,
+.grid-toggle:focus-visible {
+  color: var(--glow-core);
+  outline: none;
+}
+
+/* ---- Infrastructure ---------------------------------------------------- */
+
+.stack {
+  scroll-margin-top: 24px;
+}
+.stack > .glow-grid {
+  padding-block: clamp(32px, 4vw, 48px) clamp(96px, 14vw, 200px);
+}
+.pipeline {
+  margin: clamp(16px, 3vw, 40px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+.pipeline-step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pipeline-no {
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--glow-core);
+  text-shadow: 0 0 10px var(--glow-line);
+}

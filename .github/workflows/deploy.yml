@@ -31,13 +31,17 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install dependencies
+        run: npm ci
+
       - name: Build static site
         run: npm run build
 
       - name: Validate static site files
         run: |
           test -f Dockerfile
-          test -f src/index.html
+          test -f index.html
+          test -f vendor/glow-ui.tgz
           test -f dist/index.html
 
   build:
@@ -50,6 +54,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build static site
         run: npm run build
