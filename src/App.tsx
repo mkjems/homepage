@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties } from "react";
 import {
   Col,
   Container,
@@ -12,11 +12,11 @@ import {
   Stack,
   Text,
   useGridToggle,
-} from 'glow-ui';
-import { projects, type Project } from './projects';
+} from "glow-ui";
+import { projects, type Project } from "./projects";
 
-const pad = (n: number) => String(n).padStart(2, '0');
-const hue = (h: number) => ({ '--glow-h': h }) as CSSProperties;
+const pad = (n: number) => String(n).padStart(2, "0");
+const hue = (h: number) => ({ "--glow-h": h }) as CSSProperties;
 
 /** Swiss masthead: four equal columns of small facts, like the head of a poster. */
 function Masthead() {
@@ -69,9 +69,9 @@ function Hero() {
         </Col>
 
         <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 3 }}>
-          <Text size="lg" tone="muted" reveal={{ effect: 'rise', delay: 500 }}>
-            Four small games, designed, built and hosted by me. Each one is a place to try a
-            new piece of the web platform.
+          <Text size="lg" tone="muted" reveal={{ effect: "rise", delay: 500 }}>
+            Four small games, designed, built and hosted by me. Each one is a
+            place to try a new piece of the web platform.
           </Text>
         </Col>
 
@@ -79,7 +79,7 @@ function Hero() {
           <ol className="index" aria-label="Games">
             {projects.map((p, i) => (
               <li key={p.slug} className="glow-hue" style={hue(p.hue)}>
-                <a href={`#${p.slug}`} style={{ '--i': i } as CSSProperties}>
+                <a href={`#${p.slug}`} style={{ "--i": i } as CSSProperties}>
                   <span className="index-no">{pad(i + 1)}</span>
                   <span className="index-name">{p.name}</span>
                   <span className="index-genre">{p.genre}</span>
@@ -95,8 +95,13 @@ function Hero() {
 
 function ProjectRow({ project: p, n }: { project: Project; n: number }) {
   return (
-    <article id={p.slug} className="project glow-hue" style={hue(p.hue)} aria-labelledby={`${p.slug}-title`}>
-      <Rule tone="hairline" />
+    <article
+      id={p.slug}
+      className="project glow-hue"
+      style={hue(p.hue)}
+      aria-labelledby={`${p.slug}-title`}
+    >
+      <Rule tone="neon" />
       <Grid gapY={3} className="project-grid">
         <Col span={{ base: 12, lg: 2 }}>
           <Eyebrow index={pad(n)} reveal="fade">
@@ -122,7 +127,7 @@ function ProjectRow({ project: p, n }: { project: Project; n: number }) {
             <Heading level={2} size="l" id={`${p.slug}-title`} reveal="rise">
               {p.name}
             </Heading>
-            <Text tone="muted" reveal={{ effect: 'rise', delay: 120 }}>
+            <Text tone="muted" reveal={{ effect: "rise", delay: 120 }}>
               {p.description}
             </Text>
             <dl className="facts">
@@ -147,31 +152,31 @@ function ProjectRow({ project: p, n }: { project: Project; n: number }) {
 
 const pipeline = [
   {
-    title: 'Push',
-    text: 'A push to main starts a GitHub Actions workflow that installs, typechecks and builds the app.',
+    title: "Push",
+    text: "A push to main starts a GitHub Actions workflow that installs, typechecks and builds the app.",
   },
   {
-    title: 'Package',
-    text: 'The build goes into a Docker image, pushed to GitHub Container Registry as latest and as the commit SHA.',
+    title: "Package",
+    text: "The build goes into a Docker image, pushed to GitHub Container Registry as latest and as the commit SHA.",
   },
   {
-    title: 'Deploy',
-    text: 'Actions connects to the VPS over SSH, pulls the new image and restarts the service with Docker Compose.',
+    title: "Deploy",
+    text: "Actions connects to the VPS over SSH, pulls the new image and restarts the service with Docker Compose.",
   },
   {
-    title: 'Serve',
-    text: 'Caddy terminates HTTPS and routes each subdomain to its container. A final check requests the live URL.',
+    title: "Serve",
+    text: "Caddy terminates HTTPS and routes each subdomain to its container. A final check requests the live URL.",
   },
 ];
 
 const stack = [
-  ['Server', 'Hetzner VPS'],
-  ['Edge', 'Caddy, automatic HTTPS'],
-  ['Runtime', 'Docker Compose'],
-  ['Static', 'Nginx, unprivileged'],
-  ['Registry', 'GitHub Container Registry'],
-  ['CI/CD', 'GitHub Actions'],
-  ['Analytics', 'GoatCounter, self-hosted'],
+  ["Server", "Hetzner VPS"],
+  ["Edge", "Caddy, automatic HTTPS"],
+  ["Runtime", "Docker Compose"],
+  ["Static", "Nginx, unprivileged"],
+  ["Registry", "GitHub Container Registry"],
+  ["CI/CD", "GitHub Actions"],
+  ["Analytics", "GoatCounter, self-hosted"],
 ];
 
 function Infrastructure({ n }: { n: number }) {
@@ -186,7 +191,7 @@ function Infrastructure({ n }: { n: number }) {
         </Col>
         <Col span={{ base: 12, lg: 10 }}>
           <Heading level={2} size="xl" id="stack-title">
-            <RevealText>One small server.</RevealText>{' '}
+            <RevealText>One small server.</RevealText>{" "}
             <span className="glow-tone-muted">
               <RevealText delay={200}>Shipped on every push.</RevealText>
             </span>
@@ -195,8 +200,9 @@ function Infrastructure({ n }: { n: number }) {
 
         <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 3 }}>
           <Text size="lg" tone="muted" reveal="rise">
-            The games and this page run as Docker containers on a single Hetzner VPS. Each app
-            follows the same recipe, from commit to HTTPS, with no manual steps.
+            The games and this page run as Docker containers on a single Hetzner
+            VPS. Each app follows the same recipe, from commit to HTTPS, with no
+            manual steps.
           </Text>
         </Col>
         <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 9 }}>
@@ -220,18 +226,18 @@ function Infrastructure({ n }: { n: number }) {
             reveal="rise"
             stagger={120}
           >
-              {pipeline.map((step, i) => (
-                <li key={step.title} className="pipeline-step">
-                  <Rule weight={2} delay={i * 220} />
-                  <span className="pipeline-no">{pad(i + 1)}</span>
-                  <Heading level={3} size="m">
-                    {step.title}
-                  </Heading>
-                  <Text size="sm" tone="muted">
-                    {step.text}
-                  </Text>
-                </li>
-              ))}
+            {pipeline.map((step, i) => (
+              <li key={step.title} className="pipeline-step">
+                <Rule weight={2} delay={i * 220} />
+                <span className="pipeline-no">{pad(i + 1)}</span>
+                <Heading level={3} size="m">
+                  {step.title}
+                </Heading>
+                <Text size="sm" tone="muted">
+                  {step.text}
+                </Text>
+              </li>
+            ))}
           </Grid>
         </Col>
       </Grid>
@@ -251,7 +257,7 @@ function About() {
         </Col>
         <Col span={{ base: 12, lg: 10 }}>
           <Heading level={2} size="xl" id="about-title">
-            <RevealText>Developer and designer</RevealText>{' '}
+            <RevealText>Developer and designer</RevealText>{" "}
             <span className="glow-tone-muted">
               <RevealText delay={200}>living in Copenhagen.</RevealText>
             </span>
@@ -259,9 +265,9 @@ function About() {
         </Col>
         <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 3 }}>
           <Text size="lg" reveal="rise">
-            I’m Martin Kjems. I like to explore new web technologies, and games are my favourite
-            way to do it: they need real-time networking, rendering and tight interaction all at
-            once.
+            I’m Martin Kjems. I like to explore new web technologies, and games
+            are my favourite way to do it: they need real-time networking,
+            rendering and tight interaction all at once.
           </Text>
         </Col>
         <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 9 }}>
@@ -317,7 +323,7 @@ function Footer({ onGrid }: { onGrid: () => void }) {
 }
 
 export function App() {
-  const [gridVisible, setGridVisible] = useGridToggle('g');
+  const [gridVisible, setGridVisible] = useGridToggle("g");
 
   return (
     <>
