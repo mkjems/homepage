@@ -23,20 +23,10 @@ function Masthead() {
   return (
     <header className="masthead">
       <Grid gapY={2} reveal="fade" stagger={80}>
-        <Col span={{ base: 12, md: 3 }}>
+        <Col span={{ base: 12, md: 9 }}>
           <a href="/" className="wordmark">
-            Martin Kjems
+            M. Kjems
           </a>
-        </Col>
-        <Col span={{ base: 6, md: 3 }}>
-          <Text size="sm" tone="muted">
-            Developer &amp; designer
-          </Text>
-        </Col>
-        <Col span={{ base: 6, md: 3 }}>
-          <Text size="sm" tone="muted">
-            Copenhagen, Denmark
-          </Text>
         </Col>
         <Col span={{ base: 12, md: 3 }}>
           <nav aria-label="Sections" className="masthead-nav">
