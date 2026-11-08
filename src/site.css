@@ -62,52 +62,6 @@ a {
   padding-block: clamp(72px, 14vw, 200px) clamp(64px, 10vw, 144px);
 }
 
-.index {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-bottom: 1px solid var(--glow-separator);
-}
-.index a {
-  display: grid;
-  grid-template-columns: 4ch 1fr auto;
-  align-items: baseline;
-  gap: var(--glow-gutter);
-  padding: 14px 0;
-  border-top: 1px solid var(--glow-separator);
-  text-decoration: none;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  animation: glow-rise 900ms var(--glow-ease-out) calc(700ms + var(--i) * 90ms) backwards;
-}
-.index a:hover,
-.index a:focus-visible {
-  outline: none;
-  border-top-color: var(--glow-line);
-  box-shadow: 0 -1px 14px -6px var(--glow-line);
-}
-.index-no {
-  font-size: 13px;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  color: var(--glow-core);
-  text-shadow: 0 0 10px var(--glow-line);
-}
-.index-name {
-  font-family: var(--glow-font-display);
-  font-size: clamp(18px, 1.8vw, 24px);
-  font-weight: 500;
-  letter-spacing: -0.015em;
-}
-.index-genre {
-  font-size: 13px;
-  color: var(--glow-text-muted);
-}
-@media (prefers-reduced-motion: reduce) {
-  .index a {
-    animation: none;
-  }
-}
-
 /* ---- Work -------------------------------------------------------------- */
 
 .project {
@@ -118,22 +72,6 @@ a {
 }
 .project-copy {
   height: 100%;
-}
-
-.shot {
-  display: block;
-  text-decoration: none;
-  outline: none;
-}
-.shot .glow-img {
-  border-radius: var(--glow-radius-sm);
-  border: 1px solid var(--quiet-border);
-  transition: border-color 0.3s, box-shadow 0.4s var(--glow-ease);
-}
-.shot:hover .glow-img,
-.shot:focus-visible .glow-img {
-  border-color: var(--glow-line);
-  box-shadow: var(--glow-shadow-sm);
 }
 
 .facts {
@@ -167,7 +105,6 @@ a {
 .play {
   align-self: flex-start;
   margin-top: auto;
-  text-decoration: none;
 }
 
 /* ---- About & footer ---------------------------------------------------- */

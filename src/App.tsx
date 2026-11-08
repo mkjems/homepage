@@ -1,11 +1,14 @@
 import type { CSSProperties } from "react";
 import {
+  Button,
   Col,
   Container,
   Eyebrow,
   Grid,
   GridOverlay,
   Heading,
+  List,
+  ListItem,
   RevealImage,
   RevealText,
   Rule,
@@ -66,17 +69,20 @@ function Hero() {
         </Col>
 
         <Col span={{ base: 12, md: 6, lg: 5 }} start={{ lg: 8 }}>
-          <ol className="index" aria-label="Games">
-            {projects.map((p, i) => (
-              <li key={p.slug} className="glow-hue" style={hue(p.hue)}>
-                <a href={`#${p.slug}`} style={{ "--i": i } as CSSProperties}>
-                  <span className="index-no">{pad(i + 1)}</span>
-                  <span className="index-name">{p.name}</span>
-                  <span className="index-genre">{p.genre}</span>
-                </a>
-              </li>
-            ))}
-          </ol>
+          <nav aria-label="Games">
+            <List numbered stagger={90}>
+              {projects.map((p) => (
+                <ListItem
+                  key={p.slug}
+                  className="glow-hue"
+                  style={hue(p.hue)}
+                  title={p.name}
+                  meta={p.genre}
+                  href={`#${p.slug}`}
+                />
+              ))}
+            </List>
+          </nav>
         </Col>
       </Grid>
     </section>
@@ -100,16 +106,16 @@ function ProjectRow({ project: p, n }: { project: Project; n: number }) {
         </Col>
 
         <Col span={{ base: 12, md: 7, lg: 6 }}>
-          <a href={p.url} className="shot" aria-label={`Play ${p.name}`}>
-            <RevealImage
-              src={`/screens/${p.slug}.jpg`}
-              alt={p.alt}
-              ratio="16/10"
-              loading="lazy"
-              width={1200}
-              height={750}
-            />
-          </a>
+          <RevealImage
+            href={p.url}
+            linkProps={{ "aria-label": `Play ${p.name}` }}
+            src={`/screens/${p.slug}.jpg`}
+            alt={p.alt}
+            ratio="16/10"
+            loading="lazy"
+            width={1200}
+            height={750}
+          />
         </Col>
 
         <Col span={{ base: 12, md: 5, lg: 3 }} start={{ lg: 10 }}>
@@ -130,9 +136,9 @@ function ProjectRow({ project: p, n }: { project: Project; n: number }) {
                 <dd>{p.host}</dd>
               </div>
             </dl>
-            <a href={p.url} className="glow-btn glow-btn--outline play">
+            <Button variant="outline" href={p.url} className="play">
               Play {p.name} <span aria-hidden>→</span>
-            </a>
+            </Button>
           </Stack>
         </Col>
       </Grid>

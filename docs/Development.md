@@ -1,6 +1,6 @@
 # Development
 
-React + Vite, styled with [Glow UI](../vendor/glow-ui.tgz) (frosted glass, neon
+React + Vite, styled with [Glow UI](../vendor/) (frosted glass, neon
 edges, a Swiss 12-column grid).
 
 ```sh
@@ -30,10 +30,16 @@ Glow UI is installed from a vendored tarball, so CI needs no access to the
 library repo:
 
 ```sh
-cd ../experiments/frameworks/react/glow-ui && npm run pack
-cp glow-ui.tgz ~/Code/Homepage/vendor/
-cd ~/Code/Homepage && npm install ./vendor/glow-ui.tgz
+cd ../experiments/frameworks/react/glow-ui && npm run pack   # writes glow-ui-<version>.tgz
+cd ~/Code/Homepage
+git rm vendor/glow-ui-*.tgz                                  # keep exactly one tarball
+cp ../experiments/frameworks/react/glow-ui/glow-ui-<version>.tgz vendor/
+npm install ./vendor/glow-ui-<version>.tgz                   # updates package.json and the lockfile
 ```
+
+Each release has its own file name, so `npm install` always refreshes the
+lockfile checksum and `npm ci` in CI stays green. Read the library's
+`CHANGELOG.md` for what changed.
 
 ## Screenshots
 
