@@ -38,9 +38,24 @@ function ThemeMenu() {
       trigger="Theme"
       align="end"
       items={[
-        { label: "System", icon: <MonitorIcon />, checked: theme === "system", onSelect: () => setTheme("system") },
-        { label: "Light", icon: <SunIcon />, checked: theme === "light", onSelect: () => setTheme("light") },
-        { label: "Dark", icon: <MoonIcon />, checked: theme === "dark", onSelect: () => setTheme("dark") },
+        {
+          label: "System",
+          icon: <MonitorIcon />,
+          checked: theme === "system",
+          onSelect: () => setTheme("system"),
+        },
+        {
+          label: "Light",
+          icon: <SunIcon />,
+          checked: theme === "light",
+          onSelect: () => setTheme("light"),
+        },
+        {
+          label: "Dark",
+          icon: <MoonIcon />,
+          checked: theme === "dark",
+          onSelect: () => setTheme("dark"),
+        },
       ]}
     />
   );
@@ -93,7 +108,7 @@ function Hero() {
           </Heading>
         </Col>
 
-        <Col span={{ md: 4, lg: 4 }} start={{ lg: 4 }}>
+        <Col span={{ md: 4, lg: 4 }} start={{ lg: 3 }}>
           <Text size="md" tone="muted" reveal={{ effect: "rise", delay: 500 }}>
             Four small games, designed, built and hosted by me. Each one is a
             place to try a new piece of the web platform.
