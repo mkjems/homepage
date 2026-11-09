@@ -7,6 +7,7 @@ import {
   Grid,
   GridOverlay,
   Heading,
+  Inline,
   List,
   ListItem,
   RevealImage,
@@ -26,17 +27,23 @@ function Masthead() {
   return (
     <header className="masthead">
       <Grid gapY={2} reveal="fade" stagger={80}>
-        <Col span={{ base: 9, md: 9 }}>
+        <Col span={{ base: 6, md: 9 }}>
           <a href="/" className="wordmark">
             M. Kjems
           </a>
         </Col>
-        <Col span={{ base: 3, md: 3 }}>
-          <nav aria-label="Sections" className="masthead-nav">
+        <Col span={{ base: 6, md: 3 }}>
+          <Inline
+            as="nav"
+            aria-label="Sections"
+            className="masthead-nav"
+            justify="flex-end"
+            gap={3}
+          >
             <a href="#work">Work</a>
             <a href="#stack">Stack</a>
             <a href="#about">About</a>
-          </nav>
+          </Inline>
         </Col>
       </Grid>
       <Rule tone="line" />

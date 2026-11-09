@@ -38,10 +38,6 @@ a {
   letter-spacing: -0.01em;
   text-decoration: none;
 }
-.masthead-nav {
-  display: flex;
-  gap: 24px;
-}
 .masthead-nav a,
 .footer a {
   font-size: 14px;
