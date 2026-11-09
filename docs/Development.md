@@ -30,12 +30,11 @@ Glow UI is installed from a vendored tarball, so CI needs no access to the
 library repo:
 
 ```sh
-cd ../experiments/frameworks/react/glow-ui && npm run pack   # writes glow-ui-<version>.tgz
-cd ~/Code/Homepage
-git rm vendor/glow-ui-*.tgz                                  # keep exactly one tarball
-mkdir -p vendor                                              # git rm removes the emptied folder
-cp ../experiments/frameworks/react/glow-ui/glow-ui-<version>.tgz vendor/
-npm install ./vendor/glow-ui-<version>.tgz                   # updates package.json and the lockfile
+GLOW=../experiments/frameworks/react/glow-ui
+ls $GLOW/versions/                                  # every release, newest last
+cp $GLOW/versions/glow-ui-<new>.tgz vendor/         # 1. copy the new tarball in
+npm install ./vendor/glow-ui-<new>.tgz              # 2. updates package.json and the lockfile
+git rm vendor/glow-ui-<old>.tgz                     # 3. keep exactly one tarball
 ```
 
 Each release has its own file name, so `npm install` always refreshes the

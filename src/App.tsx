@@ -40,9 +40,9 @@ function Masthead() {
             justify="flex-end"
             gap={3}
           >
-            <a href="#work">Work</a>
-            <a href="#stack">Stack</a>
-            <a href="#about">About</a>
+            <a className="glow-link" href="#work">Work</a>
+            <a className="glow-link" href="#stack">Stack</a>
+            <a className="glow-link" href="#about">About</a>
           </Inline>
         </Col>
       </Grid>
@@ -192,10 +192,12 @@ function Infrastructure({ n }: { n: number }) {
         </Col>
         <Col span={{ base: 12, lg: 10 }}>
           <Heading level={2} size="xl" id="stack-title">
-            <RevealText>One small server.</RevealText>{" "}
-            <span className="glow-tone-muted">
-              <RevealText delay={200}>Shipped on every push.</RevealText>
-            </span>
+            <RevealText
+              parts={[
+                "One small server.",
+                { text: "Shipped on every push.", tone: "muted" },
+              ]}
+            />
           </Heading>
         </Col>
 
@@ -258,10 +260,12 @@ function About() {
         </Col>
         <Col span={{ base: 12, lg: 10 }}>
           <Heading level={2} size="xl" id="about-title">
-            <RevealText>Developer and designer</RevealText>{" "}
-            <span className="glow-tone-muted">
-              <RevealText delay={200}>living in Copenhagen.</RevealText>
-            </span>
+            <RevealText
+              parts={[
+                "Developer and designer",
+                { text: "living in Copenhagen.", tone: "muted" },
+              ]}
+            />
           </Heading>
         </Col>
         <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 3 }}>
@@ -313,7 +317,7 @@ function Footer({ onGrid }: { onGrid: () => void }) {
         </Col>
         <Col span={{ base: 12, md: 6 }}>
           <Text size="xs" tone="faint">
-            <button type="button" className="grid-toggle" onClick={onGrid}>
+            <button type="button" className="glow-link" onClick={onGrid}>
               Press G to show the grid
             </button>
           </Text>

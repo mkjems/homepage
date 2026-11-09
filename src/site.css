@@ -38,18 +38,8 @@ a {
   letter-spacing: -0.01em;
   text-decoration: none;
 }
-.masthead-nav a,
-.footer a {
+.masthead-nav a {
   font-size: 14px;
-  color: var(--glow-text-muted);
-  text-decoration: none;
-  transition: color 0.2s, text-shadow 0.2s;
-}
-.masthead-nav a:hover,
-.masthead-nav a:focus-visible {
-  color: var(--glow-core);
-  text-shadow: 0 0 10px var(--glow-line);
-  outline: none;
 }
 
 /* ---- Hero -------------------------------------------------------------- */
@@ -117,19 +107,6 @@ a {
   flex-direction: column;
   gap: 20px;
   padding-bottom: 40px;
-}
-.grid-toggle {
-  padding: 0;
-  border: 0;
-  background: none;
-  font: inherit;
-  color: inherit;
-  cursor: pointer;
-}
-.grid-toggle:hover,
-.grid-toggle:focus-visible {
-  color: var(--glow-core);
-  outline: none;
 }
 
 /* ---- Infrastructure ---------------------------------------------------- */
