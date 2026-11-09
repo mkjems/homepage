@@ -270,7 +270,7 @@ function About() {
         </Col>
         <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 3 }}>
           <Text size="lg" reveal="rise">
-            I’m Martin Kjems. I like to explore new web technologies, and games
+            I’m M. Kjems. I like to explore new web technologies, and games
             are my favourite way to do it: they need real-time networking,
             rendering and tight interaction all at once.
           </Text>
@@ -307,7 +307,7 @@ function Footer({ onGrid }: { onGrid: () => void }) {
       <Grid gapY={1}>
         <Col span={{ base: 12, md: 3 }}>
           <Text size="xs" tone="faint">
-            © {new Date().getFullYear()} Martin Kjems
+            © {new Date().getFullYear()} M. Kjems
           </Text>
         </Col>
         <Col span={{ base: 12, md: 3 }}>
