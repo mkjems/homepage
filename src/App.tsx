@@ -1,4 +1,4 @@
-import { useEffect, type CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import {
   Button,
   Col,
@@ -10,10 +10,14 @@ import {
   Inline,
   List,
   ListItem,
+  Menu,
+  MonitorIcon,
+  MoonIcon,
   RevealImage,
   RevealText,
   Rule,
   Stack,
+  SunIcon,
   Text,
   useGridToggle,
   useTheme,
@@ -23,26 +27,22 @@ import { projects, type Project } from "./projects";
 const pad = (n: number) => String(n).padStart(2, "0");
 const hue = (h: number) => ({ "--glow-h": h }) as CSSProperties;
 
-/** Switches between the light and dark theme. Follows the system setting until clicked. */
-function ThemeToggle() {
-  const { resolved, setTheme } = useTheme();
-  const next = resolved === "dark" ? "light" : "dark";
-
-  // Keep the browser chrome (mobile address bar) the same color as the page.
-  useEffect(() => {
-    const bg = getComputedStyle(document.documentElement).backgroundColor;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", bg);
-  }, [resolved]);
+/** System / Light / Dark. Follows the system setting until the visitor chooses. */
+function ThemeMenu() {
+  const { theme, setTheme } = useTheme();
 
   return (
-    <button
-      type="button"
-      className="glow-link"
-      onClick={() => setTheme(next)}
-      aria-label={`Switch to ${next} theme`}
-    >
-      {next === "light" ? "Light" : "Dark"}
-    </button>
+    <Menu
+      variant="ghost"
+      size="sm"
+      trigger="Theme"
+      align="end"
+      items={[
+        { label: "System", icon: <MonitorIcon />, checked: theme === "system", onSelect: () => setTheme("system") },
+        { label: "Light", icon: <SunIcon />, checked: theme === "light", onSelect: () => setTheme("light") },
+        { label: "Dark", icon: <MoonIcon />, checked: theme === "dark", onSelect: () => setTheme("dark") },
+      ]}
+    />
   );
 }
 
@@ -74,7 +74,7 @@ function Masthead() {
             <a className="glow-link" href="#about">
               About
             </a>
-            <ThemeToggle />
+            <ThemeMenu />
           </Inline>
         </Col>
       </Grid>
