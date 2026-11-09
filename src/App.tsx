@@ -27,22 +27,29 @@ function Masthead() {
   return (
     <header className="masthead">
       <Grid gapY={2} reveal="fade" stagger={80}>
-        <Col span={{ base: 6, md: 9 }}>
+        <Col span={{ base: 2, md: 6, lg: 9 }}>
           <a href="/" className="wordmark">
             M. Kjems
           </a>
         </Col>
-        <Col span={{ base: 6, md: 3 }}>
+        <Col span={{ base: 2, md: 2, lg: 3 }}>
           <Inline
             as="nav"
             aria-label="Sections"
             className="masthead-nav"
             justify="flex-end"
             gap={3}
+            style={{ fontSize: "var(--glow-fs-text-sm)" }}
           >
-            <a className="glow-link" href="#work">Work</a>
-            <a className="glow-link" href="#stack">Stack</a>
-            <a className="glow-link" href="#about">About</a>
+            <a className="glow-link" href="#work">
+              Work
+            </a>
+            <a className="glow-link" href="#stack">
+              Stack
+            </a>
+            <a className="glow-link" href="#about">
+              About
+            </a>
           </Inline>
         </Col>
       </Grid>
@@ -54,26 +61,21 @@ function Masthead() {
 function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title">
-      <Grid gapY={5}>
-        <Col span={{ base: 12, lg: 2 }}>
-          <Eyebrow index="00" reveal="fade">
-            Index
-          </Eyebrow>
-        </Col>
-        <Col span={{ base: 12, lg: 10 }}>
+      <Grid gapY="clamp(40px, 8vw, 112px)">
+        <Col>
           <Heading level={1} size="display" id="hero-title">
             <RevealText lines={["Games for", "the browser."]} />
           </Heading>
         </Col>
 
-        <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 3 }}>
-          <Text size="lg" tone="muted" reveal={{ effect: "rise", delay: 500 }}>
+        <Col span={{ md: 4, lg: 4 }} start={{ lg: 4 }}>
+          <Text size="md" tone="muted" reveal={{ effect: "rise", delay: 500 }}>
             Four small games, designed, built and hosted by me. Each one is a
             place to try a new piece of the web platform.
           </Text>
         </Col>
 
-        <Col span={{ base: 12, md: 6, lg: 5 }} start={{ lg: 8 }}>
+        <Col span={{ md: 4, lg: 5 }} start={{ lg: 8 }}>
           <nav aria-label="Games">
             <List numbered stagger={90}>
               {projects.map((p) => (
@@ -104,13 +106,13 @@ function ProjectRow({ project: p, n }: { project: Project; n: number }) {
     >
       <Rule tone="neon" />
       <Grid gapY={3} className="project-grid">
-        <Col span={{ base: 12, lg: 2 }}>
+        <Col span={{ lg: 2 }}>
           <Eyebrow index={pad(n)} reveal="fade">
             {p.genre}
           </Eyebrow>
         </Col>
 
-        <Col span={{ base: 12, md: 7, lg: 6 }}>
+        <Col span={{ md: 5, lg: 6 }}>
           <RevealImage
             href={p.url}
             linkProps={{ "aria-label": `Play ${p.name}` }}
@@ -123,7 +125,7 @@ function ProjectRow({ project: p, n }: { project: Project; n: number }) {
           />
         </Col>
 
-        <Col span={{ base: 12, md: 5, lg: 3 }} start={{ lg: 10 }}>
+        <Col span={{ md: 3, lg: 3 }} start={{ lg: 10 }}>
           <Stack gap={3} className="project-copy">
             <Heading level={2} size="l" id={`${p.slug}-title`} reveal="rise">
               {p.name}
@@ -185,12 +187,12 @@ function Infrastructure({ n }: { n: number }) {
     <section id="stack" className="stack" aria-labelledby="stack-title">
       <Rule tone="line" />
       <Grid gapY={5}>
-        <Col span={{ base: 12, lg: 2 }}>
+        <Col span={{ lg: 2 }}>
           <Eyebrow index={pad(n)} reveal="fade">
             Infrastructure
           </Eyebrow>
         </Col>
-        <Col span={{ base: 12, lg: 10 }}>
+        <Col span={{ lg: 10 }}>
           <Heading level={2} size="xl" id="stack-title">
             <RevealText
               parts={[
@@ -201,14 +203,14 @@ function Infrastructure({ n }: { n: number }) {
           </Heading>
         </Col>
 
-        <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 3 }}>
+        <Col span={{ md: 4, lg: 4 }} start={{ lg: 3 }}>
           <Text size="lg" tone="muted" reveal="rise">
             The games and this page run as Docker containers on a single Hetzner
             VPS. Each app follows the same recipe, from commit to HTTPS, with no
             manual steps.
           </Text>
         </Col>
-        <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 9 }}>
+        <Col span={{ md: 4, lg: 4 }} start={{ lg: 9 }}>
           <dl className="facts facts--about">
             {stack.map(([k, v]) => (
               <div key={k}>
@@ -219,7 +221,7 @@ function Infrastructure({ n }: { n: number }) {
           </dl>
         </Col>
 
-        <Col span={{ base: 12, lg: 10 }} start={{ lg: 3 }}>
+        <Col span={{ lg: 10 }} start={{ lg: 3 }}>
           <Grid
             as="ol"
             className="pipeline"
@@ -253,12 +255,12 @@ function About() {
     <section id="about" className="about" aria-labelledby="about-title">
       <Rule tone="line" />
       <Grid gapY={5}>
-        <Col span={{ base: 12, lg: 2 }}>
+        <Col span={{ lg: 2 }}>
           <Eyebrow index={pad(projects.length + 2)} reveal="fade">
             About
           </Eyebrow>
         </Col>
-        <Col span={{ base: 12, lg: 10 }}>
+        <Col span={{ lg: 10 }}>
           <Heading level={2} size="xl" id="about-title">
             <RevealText
               parts={[
@@ -268,14 +270,14 @@ function About() {
             />
           </Heading>
         </Col>
-        <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 3 }}>
+        <Col span={{ md: 4, lg: 4 }} start={{ lg: 3 }}>
           <Text size="lg" reveal="rise">
-            I’m M. Kjems. I like to explore new web technologies, and games
-            are my favourite way to do it: they need real-time networking,
-            rendering and tight interaction all at once.
+            I’m M. Kjems. I like to explore new web technologies, and games are
+            my favourite way to do it: they need real-time networking, rendering
+            and tight interaction all at once.
           </Text>
         </Col>
-        <Col span={{ base: 12, md: 6, lg: 4 }} start={{ lg: 9 }}>
+        <Col span={{ md: 4, lg: 4 }} start={{ lg: 9 }}>
           <dl className="facts facts--about">
             <div>
               <dt>Based in</dt>
@@ -305,17 +307,17 @@ function Footer({ onGrid }: { onGrid: () => void }) {
     <footer className="footer">
       <Rule tone="hairline" />
       <Grid gapY={1}>
-        <Col span={{ base: 12, md: 3 }}>
+        <Col span={{ md: 2, lg: 3 }}>
           <Text size="xs" tone="faint">
             © {new Date().getFullYear()} M. Kjems
           </Text>
         </Col>
-        <Col span={{ base: 12, md: 3 }}>
+        <Col span={{ md: 2, lg: 3 }}>
           <Text size="xs" tone="faint">
             mkjems.dk
           </Text>
         </Col>
-        <Col span={{ base: 12, md: 6 }}>
+        <Col span={{ md: 4, lg: 6 }}>
           <Text size="xs" tone="faint">
             <button type="button" className="glow-link" onClick={onGrid}>
               Press G to show the grid

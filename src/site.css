@@ -38,14 +38,11 @@ a {
   letter-spacing: -0.01em;
   text-decoration: none;
 }
-.masthead-nav a {
-  font-size: 14px;
-}
 
 /* ---- Hero -------------------------------------------------------------- */
 
 .hero {
-  padding-block: clamp(72px, 14vw, 200px) clamp(64px, 10vw, 144px);
+  padding-block: clamp(40px, 8vw, 112px) clamp(64px, 10vw, 144px);
 }
 
 /* ---- Work -------------------------------------------------------------- */
