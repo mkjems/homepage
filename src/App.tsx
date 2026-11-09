@@ -104,7 +104,7 @@ function Hero() {
       <Grid gapY="clamp(40px, 8vw, 112px)">
         <Col>
           <Heading level={1} size="display" id="hero-title">
-            <RevealText lines={["Games for", "the browser."]} />
+            <RevealText lines={["Games for", "the browser."]} effect="fade" />
           </Heading>
         </Col>
 
@@ -144,7 +144,7 @@ function ProjectRow({ project: p, n }: { project: Project; n: number }) {
       style={hue(p.hue)}
       aria-labelledby={`${p.slug}-title`}
     >
-      <Rule tone="neon" />
+      <Rule tone="line" />
       <Grid gapY={3} className="project-grid">
         <Col span={{ lg: 2 }}>
           <Eyebrow index={pad(n)} reveal="fade">
@@ -167,7 +167,7 @@ function ProjectRow({ project: p, n }: { project: Project; n: number }) {
 
         <Col span={{ md: 3, lg: 3 }} start={{ lg: 10 }}>
           <Stack gap={3} className="project-copy">
-            <Heading level={2} size="l" id={`${p.slug}-title`} reveal="rise">
+            <Heading level={2} size="l" id={`${p.slug}-title`} reveal="fade">
               {p.name}
             </Heading>
             <Text tone="muted" reveal={{ effect: "rise", delay: 120 }}>
@@ -303,6 +303,7 @@ function About() {
         <Col span={{ lg: 10 }}>
           <Heading level={2} size="xl" id="about-title">
             <RevealText
+              effect="decode"
               parts={[
                 "Developer and designer",
                 { text: "living in Copenhagen.", tone: "muted" },
