@@ -132,3 +132,6 @@ a {
   color: var(--glow-core);
   text-shadow: 0 0 10px var(--glow-line);
 }
+[data-glow-theme="light"] .pipeline-no {
+  text-shadow: none;
+}

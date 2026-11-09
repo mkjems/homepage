@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { useEffect, type CSSProperties } from "react";
 import {
   Button,
   Col,
@@ -16,23 +16,47 @@ import {
   Stack,
   Text,
   useGridToggle,
+  useTheme,
 } from "glow-ui";
 import { projects, type Project } from "./projects";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 const hue = (h: number) => ({ "--glow-h": h }) as CSSProperties;
 
+/** Switches between the light and dark theme. Follows the system setting until clicked. */
+function ThemeToggle() {
+  const { resolved, setTheme } = useTheme();
+  const next = resolved === "dark" ? "light" : "dark";
+
+  // Keep the browser chrome (mobile address bar) the same color as the page.
+  useEffect(() => {
+    const bg = getComputedStyle(document.documentElement).backgroundColor;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", bg);
+  }, [resolved]);
+
+  return (
+    <button
+      type="button"
+      className="glow-link"
+      onClick={() => setTheme(next)}
+      aria-label={`Switch to ${next} theme`}
+    >
+      {next === "light" ? "Light" : "Dark"}
+    </button>
+  );
+}
+
 /** Swiss masthead: four equal columns of small facts, like the head of a poster. */
 function Masthead() {
   return (
     <header className="masthead">
       <Grid gapY={2} reveal="fade" stagger={80}>
-        <Col span={{ base: 2, md: 6, lg: 9 }}>
+        <Col span={{ base: 1, md: 5, lg: 9 }}>
           <a href="/" className="wordmark">
             M. Kjems
           </a>
         </Col>
-        <Col span={{ base: 2, md: 2, lg: 3 }}>
+        <Col span={{ base: 3, md: 3, lg: 3 }}>
           <Inline
             as="nav"
             aria-label="Sections"
@@ -50,6 +74,7 @@ function Masthead() {
             <a className="glow-link" href="#about">
               About
             </a>
+            <ThemeToggle />
           </Inline>
         </Col>
       </Grid>
