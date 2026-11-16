@@ -13,6 +13,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "solitaire",
+    name: "Solitaire",
+    url: "https://solitaire.mkjems.dk/",
+    host: "solitaire.mkjems.dk",
+    hue: 218,
+    genre: "Card game",
+    players: "1 player",
+    description:
+      "Classic Klondike on a green felt table. Draw one or three, numbered deals, hints and unlimited undo, on desktop or phone.",
+    alt: "Solitaire table: the stock and four empty ace piles on top, seven tableau columns with their top cards turned face up.",
+  },
+  {
     slug: "frontlines",
     name: "Frontlines",
     url: "https://frontlines.mkjems.dk/",
