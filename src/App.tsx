@@ -110,7 +110,7 @@ function Hero() {
 
         <Col span={{ md: 4, lg: 4 }} start={{ lg: 3 }}>
           <Text size="md" tone="muted" reveal={{ effect: "rise", delay: 500 }}>
-            Five small games, designed, built and hosted by me. Each one is a
+            Six small games, designed, built and hosted by me. Each one is a
             place to try a new piece of the web platform.
           </Text>
         </Col>

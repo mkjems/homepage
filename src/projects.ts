@@ -13,6 +13,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "pool",
+    name: "Pool",
+    url: "https://pool.mkjems.dk/",
+    host: "pool.mkjems.dk",
+    hue: 218,
+    genre: "Cue sport",
+    players: "vs. computer or a friend",
+    description:
+      "8-ball with real physics on a table seen from above. Play the computer at three levels, a friend on the same device, or a friend online with a link.",
+    alt: "Pool table seen from above: the cue lined up behind the white ball beside the broken rack, a few balls spread across the green cloth.",
+  },
+  {
     slug: "solitaire",
     name: "Solitaire",
     url: "https://solitaire.mkjems.dk/",
