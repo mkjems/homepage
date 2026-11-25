@@ -13,9 +13,9 @@ npm run build    # typecheck + vite build -> dist/
 
 - `index.html`: page shell, fonts (Inter, Inter Tight), GoatCounter
 - `src/App.tsx`: page sections: masthead, hero/index, games, infrastructure, about, footer
-- `src/projects.ts`: game names, links, descriptions, accent hue
+- `src/projects.ts`: games and apps: names, links, descriptions, accent hue, button verb
 - `src/site.css`: page-level layout on top of `glow-ui/styles.css`
-- `public/screens/`: game screenshots, 1200×750 JPEG (16:10)
+- `public/screens/`: screenshots, 1200×750 JPEG (16:10)
 
 ## Design rules
 

@@ -104,19 +104,19 @@ function Hero() {
       <Grid gapY="clamp(40px, 8vw, 112px)">
         <Col>
           <Heading level={1} size="display" id="hero-title">
-            <RevealText lines={["Games for", "the browser."]} effect="fade" />
+            <RevealText lines={["Made for", "the browser."]} effect="fade" />
           </Heading>
         </Col>
 
         <Col span={{ md: 4, lg: 4 }} start={{ lg: 3 }}>
           <Text size="md" tone="muted" reveal={{ effect: "rise", delay: 500 }}>
-            Six small games, designed, built and hosted by me. Each one is a
-            place to try a new piece of the web platform.
+            Six small games and a video call app, designed, built and hosted by
+            me. Each one is a place to try a new piece of the web platform.
           </Text>
         </Col>
 
         <Col span={{ md: 4, lg: 5 }} start={{ lg: 8 }}>
-          <nav aria-label="Games">
+          <nav aria-label="Projects">
             <List numbered stagger={90}>
               {projects.map((p) => (
                 <ListItem
@@ -155,7 +155,7 @@ function ProjectRow({ project: p, n }: { project: Project; n: number }) {
         <Col span={{ md: 5, lg: 6 }}>
           <RevealImage
             href={p.url}
-            linkProps={{ "aria-label": `Play ${p.name}` }}
+            linkProps={{ "aria-label": `${p.action ?? "Play"} ${p.name}` }}
             src={`/screens/${p.slug}.jpg`}
             alt={p.alt}
             ratio="16/10"
@@ -175,7 +175,7 @@ function ProjectRow({ project: p, n }: { project: Project; n: number }) {
             </Text>
             <dl className="facts">
               <div>
-                <dt>Players</dt>
+                <dt>{p.playersLabel ?? "Players"}</dt>
                 <dd>{p.players}</dd>
               </div>
               <div>
@@ -184,7 +184,7 @@ function ProjectRow({ project: p, n }: { project: Project; n: number }) {
               </div>
             </dl>
             <Button variant="outline" href={p.url} className="play">
-              Play {p.name} <span aria-hidden>→</span>
+              {p.action ?? "Play"} {p.name} <span aria-hidden>→</span>
             </Button>
           </Stack>
         </Col>
@@ -245,8 +245,8 @@ function Infrastructure({ n }: { n: number }) {
 
         <Col span={{ md: 4, lg: 4 }} start={{ lg: 3 }}>
           <Text size="lg" tone="muted" reveal="rise">
-            The games and this page run as Docker containers on a single Hetzner
-            VPS. Each app follows the same recipe, from commit to HTTPS, with no
+            The games, Meet and this page run as Docker containers on a single
+            Hetzner VPS. Each app follows the same recipe, from commit to HTTPS, with no
             manual steps.
           </Text>
         </Col>
@@ -379,7 +379,7 @@ export function App() {
         <Masthead />
         <main>
           <Hero />
-          <section id="work" aria-label="Games" className="work">
+          <section id="work" aria-label="Work" className="work">
             {projects.map((p, i) => (
               <ProjectRow key={p.slug} project={p} n={i + 1} />
             ))}
