@@ -21,7 +21,7 @@ export const projects: Project[] = [
     genre: "Cue sport",
     players: "vs. computer or a friend",
     description:
-      "8-ball with real physics on a table seen from above. Play the computer at three levels, a friend on the same device, or a friend online with a link.",
+      "8-ball with real physics on a table seen from above. Play the computer at three levels, a friend on the same device, or a friend online with a link. Voice chat with your friend.",
     alt: "Pool table seen from above: the cue lined up behind the white ball beside the broken rack, a few balls spread across the green cloth.",
   },
   {
