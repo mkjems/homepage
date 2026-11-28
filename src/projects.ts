@@ -29,6 +29,20 @@ export const projects: Project[] = [
     alt: "Pool table seen from above: the cue lined up behind the white ball beside the broken rack, a few balls spread across the green cloth.",
   },
   {
+    slug: "meet",
+    name: "Meet",
+    url: "https://meet.mkjems.dk/",
+    host: "meet.mkjems.dk",
+    hue: 218,
+    genre: "Video calls",
+    players: "Up to 4",
+    playersLabel: "People",
+    action: "Open",
+    description:
+      "Video calls with audio, video, screen sharing and chat. Make a meeting, send the link, and the call goes browser to browser. No sign-up.",
+    alt: "A Meet call with four people in a two-by-two grid, each a silhouette against a coloured wall, with the call controls along the bottom.",
+  },
+  {
     slug: "solitaire",
     name: "Solitaire",
     url: "https://solitaire.mkjems.dk/",
@@ -87,19 +101,5 @@ export const projects: Project[] = [
     description:
       "The code-breaking board game. Crack the hidden colours in ten guesses, or set the code yourself and watch an algorithm solve it.",
     alt: "Mastermind board with six rows of coloured pegs and red and white feedback pins.",
-  },
-  {
-    slug: "meet",
-    name: "Meet",
-    url: "https://meet.mkjems.dk/",
-    host: "meet.mkjems.dk",
-    hue: 218,
-    genre: "Video calls",
-    players: "Up to 4",
-    playersLabel: "People",
-    action: "Open",
-    description:
-      "Video calls with audio, video, screen sharing and chat. Make a meeting, send the link, and the call goes browser to browser. No sign-up.",
-    alt: "A Meet call with four people in a two-by-two grid, each a silhouette against a coloured wall, with the call controls along the bottom.",
   },
 ];
